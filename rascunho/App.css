@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-container {
+    position: relative;
+    width: 95%;
+    min-width: 10%;
+    aspect-ratio: 16 / 9;
+    user-select: none;
+}
+
+.video-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 50;
+    height: 100%;
+    width: 10px;
+    background-color: blue;
+    z-index: 10;
+    cursor: ew-resize;
+}
