@@ -102,6 +102,7 @@ function App() {
                     src="/video1.mp4"
                     muted
                     autoPlay
+                    loop
                 />
                 <video
                     ref={rightVideo}
@@ -110,6 +111,7 @@ function App() {
                     src="/video2.mp4"
                     muted
                     autoPlay
+                    loop
                 />
                 <div
                     className="slider-line"

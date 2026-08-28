@@ -2,6 +2,8 @@ import { useRef, useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
+    const leftVideo = useRef<HTMLVideoElement>(null);
+    const rightVideo = useRef<HTMLVideoElement>(null);
     const slider = useRef<HTMLInputElement>(null);
     const container = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState(false);
@@ -35,8 +37,8 @@ function App() {
         <>
             <div className="container" ref={container}>
                 <div className="image-container">
-                    <video className="image-before slider-image" src="/video1.mp4" muted autoPlay loop></video>
-                    <video className="image-after slider-image" src="/video2.mp4" muted autoPlay loop></video>
+                    <video className="image-before slider-image" ref={leftVideo} src="/video1.mp4" muted autoPlay loop></video>
+                    <video className="image-after slider-image" ref={rightVideo} src="/video2.mp4" muted autoPlay loop></video>
                 </div>
 
                 <input
