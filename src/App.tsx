@@ -35,8 +35,8 @@ function App() {
         <>
             <div className="container" ref={container}>
                 <div className="image-container">
-                    <video className="image-before slider-image" src="/video1.mp4" muted autoPlay></video>
-                    <video className="image-after slider-image" src="/video2.mp4" muted autoPlay></video>
+                    <video className="image-before slider-image" src="/video1.mp4" muted autoPlay loop></video>
+                    <video className="image-after slider-image" src="/video2.mp4" muted autoPlay loop></video>
                 </div>
 
                 <input
