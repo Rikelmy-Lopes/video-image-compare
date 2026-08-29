@@ -6,11 +6,6 @@
     box-sizing: border-box;
 }
 
-.video-container {
-    margin: 2rem;
-    max-height: 300px;
-}
-
 main {
     display: flex;
     place-items: center;
@@ -26,27 +21,27 @@ main {
     --position: 50%;
 }
 
-.image-container {
+.video-container {
     max-width: 800px;
     max-height: 90vh;
     aspect-ratio: 16/9;
     position: relative; /* Define a referência para os elementos filhos */
 }
 
-.slider-image {
+.slider-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: left;
 }
 
-.image-after {
+.video-after {
     display: block;
     inset: 0;
     width: 100%;
 }
 
-.image-before {
+.video-before {
     position: absolute;
     inset: 0;
     width: var(--position);
@@ -73,7 +68,6 @@ main {
     width: 0.2rem;
     height: 100%;
     background-color: #fff;
-    /* z-index: 10; */
     left: var(--position);
     transform: translateX(-50%);
     pointer-events: none;
@@ -91,6 +85,5 @@ main {
     left: var(--position);
     transform: translate(-50%, -50%);
     pointer-events: none;
-    /* z-index: 100; */
     box-shadow: 1px 1px 1px hsl(0, 50%, 2%, 0.5);
 }
