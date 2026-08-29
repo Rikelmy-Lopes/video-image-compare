@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import "./App.css";
+import { syncVideos, togglePlayPause } from "./utils/video";
 
 function App() {
     const leftVideo = useRef<HTMLVideoElement>(null);
@@ -18,6 +19,14 @@ function App() {
         container.current.style.setProperty("--position", `${percent}%`);
     };
 
+    function togglePlayPauseHelper(e: KeyboardEvent) {
+        togglePlayPause(e, leftVideo, rightVideo);
+    }
+
+    function syncVideosHelper(e: React.SyntheticEvent<HTMLVideoElement, Event>) {
+        syncVideos(e, leftVideo, rightVideo);
+    }
+
     useEffect(() => {
         if (!isDragging) return;
 
@@ -33,11 +42,27 @@ function App() {
         };
     }, [isDragging]);
 
+    useEffect(() => {
+        window.addEventListener("keydown", togglePlayPauseHelper);
+
+        return () => {
+            window.removeEventListener("keydown", togglePlayPauseHelper);
+        };
+    }, []);
+
     return (
         <>
             <div className="container" ref={container}>
                 <div className="image-container">
-                    <video className="image-before slider-image" ref={leftVideo} src="/video1.mp4" muted autoPlay loop></video>
+                    <video
+                        className="image-before slider-image"
+                        ref={leftVideo}
+                        onTimeUpdate={syncVideosHelper}
+                        src="/video1.mp4"
+                        muted
+                        autoPlay
+                        loop
+                    ></video>
                     <video className="image-after slider-image" ref={rightVideo} src="/video2.mp4" muted autoPlay loop></video>
                 </div>
 
@@ -62,7 +87,7 @@ function App() {
                     }}
                 ></div>
                 <div className="slider-button" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 256 256">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
                         <rect width="256" height="256" fill="none"></rect>
                         <line
                             x1="128"

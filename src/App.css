@@ -12,13 +12,13 @@
 }
 
 main {
-    display: grid;
+    display: flex;
     place-items: center;
     min-height: 100vh;
 }
 
 .container {
-    display: grid;
+    display: flex;
     place-content: center;
     position: relative;
     overflow: hidden;
