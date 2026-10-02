@@ -1,3 +1,4 @@
+import "../css/Videos.css";
 import { useEffect, useRef } from "react";
 import { syncVideos, togglePlayPause } from "../utils/video";
 

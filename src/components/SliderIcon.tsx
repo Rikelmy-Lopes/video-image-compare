@@ -1,3 +1,5 @@
+import "../css/SliderIcon.css";
+
 function SliderIcon() {
     return (
         <div className="slider-button" aria-hidden="true">

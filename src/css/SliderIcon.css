@@ -1,0 +1,14 @@
+.slider-button {
+    position: absolute;
+    background-color: #fff;
+    color: black;
+    padding: 0.5rem;
+    border-radius: 100vw;
+    display: grid;
+    place-items: center;
+    top: 50%;
+    left: var(--position);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    box-shadow: 1px 1px 1px hsl(0, 50%, 2%, 0.5);
+}

@@ -1,0 +1,25 @@
+.video-container {
+    max-width: 800px;
+    max-height: 90vh;
+    aspect-ratio: 16/9;
+    position: relative; /* Define a referência para os elementos filhos */
+}
+
+.slider-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left;
+}
+
+.video-after {
+    display: block;
+    inset: 0;
+    width: 100%;
+}
+
+.video-before {
+    position: absolute;
+    inset: 0;
+    width: var(--position);
+}

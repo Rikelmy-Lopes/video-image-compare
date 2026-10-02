@@ -1,3 +1,4 @@
+import "../css/VideoCompare.css";
 import { useRef } from "react";
 import Videos from "./Videos";
 import SliderIcon from "./SliderIcon";
