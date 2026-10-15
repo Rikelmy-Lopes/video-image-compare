@@ -1,11 +1,26 @@
 // Generates high quality SVG sample comparison images as Data URLs
 
+const escapeXml = (str: string): string =>
+  str.replace(/[&<>"']/g, (match) => {
+    switch (match) {
+      case '&': return '&amp;';
+      case '<': return '&lt;';
+      case '>': return '&gt;';
+      case '"': return '&quot;';
+      case "'": return '&apos;';
+      default: return match;
+    }
+  });
+
 export const createSampleImage = (title: string, subtitle: string, isBefore: boolean): string => {
   const bg1 = isBefore ? '#1e293b' : '#0f172a';
   const bg2 = isBefore ? '#334155' : '#0369a1';
   const accent = isBefore ? '#94a3b8' : '#38bdf8';
   const badgeText = isBefore ? 'BEFORE (Original)' : 'AFTER (Processed / Enhanced)';
   
+  const escapedTitle = escapeXml(title);
+  const escapedSubtitle = escapeXml(subtitle);
+
   const svg = `
     <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
       <defs>
@@ -45,14 +60,14 @@ export const createSampleImage = (title: string, subtitle: string, isBefore: boo
         <circle cx="68" cy="35" r="8" fill="#f59e0b" />
         <circle cx="96" cy="35" r="8" fill="#10b981" />
         
-        <text x="140" y="42" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="20" font-weight="bold">${title}</text>
+        <text x="140" y="42" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="20" font-weight="bold">${escapedTitle}</text>
         
         <!-- Badge -->
         <rect x="730" y="20" width="240" height="30" rx="6" fill="${accent}" fill-opacity="0.2" stroke="${accent}" stroke-width="1.5" />
         <text x="850" y="40" fill="${accent}" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" text-anchor="middle">${badgeText}</text>
         
         <!-- Content Details -->
-        <text x="80" y="160" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="36" font-weight="800">${subtitle}</text>
+        <text x="80" y="160" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="36" font-weight="800">${escapedSubtitle}</text>
         <text x="80" y="210" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="18">Resolution: 1200 x 800 px • Color Space: sRGB</text>
         
         <!-- Interactive Chart Mockup -->

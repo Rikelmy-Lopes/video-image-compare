@@ -19,4 +19,12 @@ describe('sampleImages utility', () => {
     expect(decoded).toContain('AFTER');
     expect(decoded).toContain('Test Title 2');
   });
+
+  it('should escape XML special characters correctly', () => {
+    const url = createSampleImage('UI & UX', 'Design <Draft> & "Review"', false);
+    expect(url).toBeTypeOf('string');
+    const decoded = decodeURIComponent(url);
+    expect(decoded).toContain('UI &amp; UX');
+    expect(decoded).toContain('Design &lt;Draft&gt; &amp; &quot;Review&quot;');
+  });
 });
