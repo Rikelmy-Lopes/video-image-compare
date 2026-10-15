@@ -73,6 +73,14 @@ Powered by **Zustand**, the store manages:
   ```bash
   npm run dev
   ```
+- **Run Automated Tests:**
+  ```bash
+  npm test
+  ```
+- **Run Tests in Watch Mode:**
+  ```bash
+  npm run test:watch
+  ```
 - **Type Check & Production Build:**
   ```bash
   npm run build
@@ -89,3 +97,4 @@ Powered by **Zustand**, the store manages:
 2. **Styling Consistency:** Use Tailwind CSS classes adhering to the established dark theme (`dark-900`, `dark-800`, `slate-*`, `sky-*`, `amber-*`).
 3. **Synchronized Transforms:** Any new pan/zoom or viewport features must maintain synchronization across both comparison panels.
 4. **State Integrity:** Keep business logic centralized within Zustand (`useStore.ts`) rather than component local state where appropriate.
+5. **Automated Testing & Documentation Mandate:** Whenever code changes are made or new features are implemented, automated tests (using Vitest and React Testing Library) must be written or updated. All tests must be executed (`npm test`) and pass successfully. If any test fails, diagnose and resolve the bug immediately. Once tests pass and the feature or change is fully implemented, `AGENTS.md` must be updated to reflect the new functionality, components, or modifications.
